@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'org.veta'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation 'com.codeborne:selenide:6.7.4'
+
+}
+
+test {
+    useJUnitPlatform()
+}
