@@ -33,7 +33,6 @@ public class WebTestHomework {
         );
     }
 
-
     @MethodSource("whiteRabbitSiteButtonsTextDataProvider")
     @ParameterizedTest(name = "Checking buttons names for locale: {0}")
     void whiteRabbitButtonsText(LocaleHW locale, List<String> buttonsTexts) {
