@@ -25,7 +25,7 @@ public class WebTestHomework {
 
     static Stream<Arguments> whiteRabbitSiteButtonsTextDataProvider() {
         return Stream.of(
-                Arguments.of(LocaleHW.RU, List.of("РЕСТОРАН" + " " + "МЕНЮ" +" "+
+                Arguments.of(LocaleHW.RU, List.of("РЕСТОРАН" + " " + "МЕНЮ" + " " +
                         "РЕСТОРАН WHITE RABBIT" + " " + "ГАЛЕРЕЯ" + " " + "СЕРТИФИКАТ" + " " + "КОНТАКТЫ")),
                 Arguments.of(LocaleHW.EN, List.of("RESTAURANT" + " " + "MENU" +
                         " " + "WHITE RABBIT RESTAURANT AND BAR" + " " + "GALLERY" +
@@ -33,7 +33,7 @@ public class WebTestHomework {
         );
     }
 
-    //@Disabled("Smth wrong with RU locale Test, please help me;)")
+
     @MethodSource("whiteRabbitSiteButtonsTextDataProvider")
     @ParameterizedTest(name = "Checking buttons names for locale: {0}")
     void whiteRabbitButtonsText(LocaleHW locale, List<String> buttonsTexts) {
