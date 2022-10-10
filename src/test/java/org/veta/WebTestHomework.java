@@ -25,20 +25,20 @@ public class WebTestHomework {
 
     static Stream<Arguments> whiteRabbitSiteButtonsTextDataProvider() {
         return Stream.of(
-                Arguments.of(LocaleHW.RU, List.of("РЕСТОРАН" + " " + "МЕНЮ" +
-                        " " + "ГАЛЕРЕЯ" + " " + "СЕРТИФИКАТ" + " " + "КОНТАКТЫ")),
+                Arguments.of(LocaleHW.RU, List.of("РЕСТОРАН" + " " + "МЕНЮ" +" "+
+                        "РЕСТОРАН WHITE RABBIT" + " " + "ГАЛЕРЕЯ" + " " + "СЕРТИФИКАТ" + " " + "КОНТАКТЫ")),
                 Arguments.of(LocaleHW.EN, List.of("RESTAURANT" + " " + "MENU" +
                         " " + "WHITE RABBIT RESTAURANT AND BAR" + " " + "GALLERY" +
                         " " + "CERTIFICATS" + " " + "CONTACTS"))
         );
     }
 
-    @Disabled("Smth wrong with RU locale Test, please help me;)")
+    //@Disabled("Smth wrong with RU locale Test, please help me;)")
     @MethodSource("whiteRabbitSiteButtonsTextDataProvider")
     @ParameterizedTest(name = "Checking buttons names for locale: {0}")
     void whiteRabbitButtonsText(LocaleHW locale, List<String> buttonsTexts) {
         open("https://whiterabbitmoscow.ru/");
-        $$(".mod-languages").find(text(locale.name())).click();
+        $$("#langs a").find(text(locale.name())).click();
         $$("#menu").filter(visible)
                 .shouldHave(CollectionCondition.texts(buttonsTexts));
     }
